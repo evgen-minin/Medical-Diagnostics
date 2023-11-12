@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+{% block maincontent %}
+<body>
+    <div class="col-md-5" xmlns="http://www.w3.org/1999/html">
+      <ol class="breadcrumb">
+        <li><a class="text-primary" href="{% url 'hospital' %}">Главная страница</a></li>
+        <li class="text-primary">Список специализаций</li>
+      </ol>
+    </div>
+    <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        {% for doctor in object_list %}
+        <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="thumbnail">
+            <div class="caption">
+                <a href="{% url 'doctor_team'  %}">
+              <p align="center">{{doctor.speciality}}</p>
+                </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</body>
+<!--Footer Start-->
+{% include '_footer.html' %}
+<!--Footer End-->
+{% endblock maincontent %}
